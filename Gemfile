@@ -19,6 +19,7 @@ group :production do
 end
 
 group :development, :test do
+  gem "slim-rails"
   gem "nifty-generators"
   gem 'sqlite3'
   gem "rspec-rails"
