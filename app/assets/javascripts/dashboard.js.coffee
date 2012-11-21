@@ -15,8 +15,9 @@ $(document).ready ->
         text: "Date"
       type: 'datetime'
       dateTimeLabelFormats:
-        month: '%e. %b'
-        year: '%b'
+        day: '%e'
+        month: '%b'
+        year: '%y'
 
     yAxis:
       plotLines: [
