@@ -1,0 +1,16 @@
+<% title "Records" %>
+
+<table>
+  <tr>
+    <th> Type</th>
+    <th>Value</th>
+  </tr>
+  <% for record in @records %>
+    <tr>
+      <td><%= record._type %></td>
+      <td><%= record.value %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Record", new_record_path %></p>

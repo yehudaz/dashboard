@@ -1,0 +1,17 @@
+<% title "New Record" %>
+
+<%= form_for @record do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :_type %><br />
+    <%= f.text_field :_type %>
+  </p>
+  <p>
+    <%= f.label :value %><br />
+    <%= f.text_field :value %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
+
+
+<p><%= link_to "Back to List", records_path %></p>
