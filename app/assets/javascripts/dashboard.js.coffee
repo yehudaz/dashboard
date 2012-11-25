@@ -1,5 +1,7 @@
 #= require highcharts/highcharts
 
+#http://stackoverflow.com/questions/7101464/how-to-get-highcharts-dates-in-the-x-axis
+
 chart = undefined
 $(document).ready ->
   chart = new Highcharts.Chart(
@@ -15,9 +17,7 @@ $(document).ready ->
         text: "Date"
       type: 'datetime'
       dateTimeLabelFormats:
-        day: '%e'
-        month: '%b'
-        year: '%y'
+        day: '%e %b'
 
     yAxis:
       plotLines: [

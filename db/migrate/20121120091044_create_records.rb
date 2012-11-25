@@ -3,7 +3,7 @@ class CreateRecords < ActiveRecord::Migration
     create_table :records do |t|
       t.string :_type, null: false
       t.float :value, null: false
-      t.datetime :created_at, default: Time.now
+      t.timestamps
     end
   end
 
