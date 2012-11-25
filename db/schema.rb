@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20121120091044) do
 
   create_table "records", :force => true do |t|
-    t.string   "_type",      :null => false
+    t.string   "the_type",   :null => false
     t.float    "value",      :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

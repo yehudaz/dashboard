@@ -1,7 +1,7 @@
 class Record < ActiveRecord::Base
-  attr_accessible :_type, :value
+  attr_accessible :the_type, :value
 
-  validates_presence_of :value, :_type, :on => :create, :message => "can't be blank"
+  validates_presence_of :value, :the_type, :on => :create, :message => "can't be blank"
 
   def to_a
     [to_date, value]

@@ -1,6 +1,6 @@
 class DashboardController < ApplicationController
   def index
-    @type = params[:type] || Record.first._type
-    @records = Record.where('_type' => @type).order("created_at").select("created_at, value")
+    @the_type = params[:the_type] || Record.first.the_type
+    @records = Record.where('the_type' => @type).order("created_at").select("created_at, value")
   end
 end
