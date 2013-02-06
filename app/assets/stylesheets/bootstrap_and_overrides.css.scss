@@ -19,9 +19,17 @@ body { padding-top: 60px; }
 
 div.my-box {
   border: 1 solid #FAFFB8;
-  text-align: center;
   background-color:#6495ed;
+  margin-bottom: 30px;
+  h2 {
+    text-align: center;
+  }
 }
-title {
 
+h1 {
+  margin-bottom: 60px;
+}
+
+button {
+  margin: 0 auto;
 }
