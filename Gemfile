@@ -11,6 +11,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'bootstrap-sass'
 
 group :production do
   gem 'pg'  # sudo apt-get install postgresql postgresql-contrib libpq-dev
