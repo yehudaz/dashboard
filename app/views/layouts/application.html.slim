@@ -26,36 +26,55 @@ html
     .container
       .row
         .span4
-          .my-box
-            h2 Tests Coverage
-            center 92.17%
+          h2 Code Review Insights
+          table.table.table-condensed
+            tr.success
+              td
+                i.icon-search
+              td Meaningful names for variables
+            tr.success
+              td
+                i.icon-search
+              td Move logic from controller to model
+          button.btn.btn-success type="button" Add
         .span4
-          .my-box
-            h2 Passed Tests
-            center 425
+            #myCarousel.carousel.slide
+              /! Carousel items
+              .carousel-inner
+                .active.item
+                  img src="http://www.hqwps.com/wp-content/uploads/bodypaint_elephant_2-800x600-590x400.jpg"
+                    .carousel-caption
+                      h4 Tests Coverage
+                      p 92.17%
+                .item
+                  img src="http://www.hqwps.com/wp-content/uploads/2012/10/bodypaint_swan-800x600-590x400.jpg"
+                    .carousel-caption
+                      h4 Passed Tests
+                      p 450
+                .item
+                  img src="http://www.hqwps.com/wp-content/uploads/bodypaint_tiger-800x600-590x400.jpg"
+                    .carousel-caption
+                      h4 RBP Open Issues
+                      p 5
+              /! Carousel nav
+              a.left.carousel-control data-slide="prev" href="#myCarousel" &lsaquo;
+              a.right.carousel-control data-slide="next" href="#myCarousel" &rsaquo;
         .span4
-          .my-box
-            h2 RBP Open Issues
-            center 5
-        .span6
-          .my-box
-            h2 Code Review Insights
-            ul
-              li insight 1
-              li insight 2
-              button type="button" Add
-        .span6
-          .my-box
-            h2 Patched Deployed
-            ul
-              li patch 1
-              li patch 1
-              button type="button" Add
+          h2 Patched Deployed
+          table.table.table-condensed
+            tr.success
+              td
+                i.icon-search
+              td patch 1
+            tr.success
+              td
+                i.icon-search
+              td patch 2
+          button.btn.btn-success type="button" Add
         .span12
-          .my-box
-            h2 GIT Hash
-            center hash
+          .page-header
+            h1
+              | GIT Hash
+              small  a9df255a780b386cecd7fa9d0303dbed8dd55e69
         .span12
-          .my-box
-            h2 Status
-            center Excellent
+          img.img-rounded src="http://t2.gstatic.com/images?q=tbn:ANd9GcTbpCPSWWinnzQqRJwu6yn1tzAIgrMn0On140Dzc9nAmPLcoxFF""
