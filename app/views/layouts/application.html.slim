@@ -27,16 +27,21 @@ html
       .row
         .span4
           h2 title="insight raised from code review" Code Review Insights
-          table.table.table-condensed
+          table.table.table-condensed#insights
             tr.success
               td
                 i.icon-thumbs-up
               td Meaningful names for variables
+              td
+                button.btn.btn-link title="remove patch deployed" type="button" Remove
             tr.success
               td
                 i.icon-thumbs-up
               td Move logic from controller to model
-          button.btn.btn-success title="add another code review insight" Add
+              td
+                button.btn.btn-link title="remove patch deployed" type="button" Remove
+          input#AddInsight name="user" placeholder="Code Review Insight" type="text" value=""
+          button.btn.btn-success onclick="addInsightToInsightsList()" title="add another code review insight" Add
         .span4
             #myCarousel.carousel.slide
               /! Carousel items
@@ -49,6 +54,7 @@ html
                 .item
                   img src="http://www.hqwps.com/wp-content/uploads/2012/10/bodypaint_swan-800x600-590x400.jpg"
                     .carousel-caption
+
                       h4 Passed Tests
                       p 450
                 .item
@@ -61,16 +67,21 @@ html
               a.right.carousel-control data-slide="next" href="#myCarousel" &rsaquo;
         .span4
           h2 title="patches deployed for urgent hot fixes" Patched Deployed
-          table.table.table-condensed
+          table.table.table-condensed#patches
             tr.success
               td
                 i.icon-ok
               td patch 1
+              td
+                button.btn.btn-link title="add another patch deployed" type="button" Remove
             tr.success
               td
                 i.icon-ok
               td patch 2
-          button.btn.btn-success  title="add another patch deployed" type="button" Add
+              td
+                button.btn.btn-link title="add another patch deployed" type="button" Remove
+          input#AddPatch name="user" placeholder="Patche Deployed" type="text" value=""
+          button.btn.btn-success onclick="addPatchToPatchedList()" title="add another patch deployed" type="button" Add
         .span12
           .page-header
             h1 title="the last GIT hash committed"

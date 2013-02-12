@@ -2,34 +2,32 @@
 
 #http://stackoverflow.com/questions/7101464/how-to-get-highcharts-dates-in-the-x-axis
 
-chart = undefined
-$(document).ready ->
-  chart = new Highcharts.Chart(
-    chart:
-      renderTo: "chart"
-      type: "spline"
+@addInsightToInsightsList = -> #Add new item to list
+  table = $("#insights")
+  item = document.getElementById("AddInsight")
+  item.value = item.value.trim()
+  if item.value
+    table.append("<tr class=\"success\"><td><i class=\"icon-thumbs-up\"></i></td><td>"+item.value+"</td><td><button class=\"btn btn-link\"onclick=\"removeInsightFromInsights(this)\"title=\"remove patch deployed\"type=\"button\">Remove</button></td></tr>newTd1 = newTr.createElement(\"td\")")
+    item.value = ""
+  else
+    alert "Please Enter Insight"
 
-    title:
-      text: type_name
+@addPatchToPatchedList = -> #Add new item to list
+  table = $("#patches")
+  item = document.getElementById("AddPatch")
+  item.value = item.value.trim()
+  if item.value
+    table.append("<tr class=\"success\"><td><i class=\"icon-ok\"></i></td><td>"+item.value+"</td><td><button class=\"btn btn-link\"onclick=\"removePatchFromPatches(this)\"title=\"remove patch deployed\"type=\"button\">Remove</button></td></tr>newTd1 = newTr.createElement(\"td\")")
+    item.value = ""
+  else
+    alert "Please Enter Patch"
 
-    xAxis:
-      title:
-        text: "Date"
-      type: 'datetime'
-      dateTimeLabelFormats:
-        day: '%e %b'
+@removeInsightFromInsights = (listItem) ->
+  i = listItem.parentNode.parentNode.rowIndex
+  con = confirm("Are you sure you want to delete?")
+  document.getElementById("insights").deleteRow i if con is true
 
-    yAxis:
-      plotLines: [
-        color: "#FF0000"
-        width: 2
-        value: 0
-      ]
-      title:
-        text: "Value"
-
-    series: [
-      name: "Value"
-      data: record_values
-    ]
-  )
+@removePatchFromPatches = (listItem) ->
+  i = listItem.parentNode.parentNode.rowIndex
+  con = confirm("Are you sure you want to delete?")
+  document.getElementById("patches").deleteRow i if con is true
