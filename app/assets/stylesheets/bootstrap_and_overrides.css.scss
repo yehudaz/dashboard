@@ -68,6 +68,16 @@ input {
 }
 
 .scroll-wrapper {
-  max-height: 150px;
+  height: 150px;
   overflow: auto;
+}
+
+div.hero-unit {
+  border: 1 solid;
+  background-image: url('http://t2.gstatic.com/images?q=tbn:ANd9GcQIwFJxFxY970JTIHeWSynp0xGrY3Yw7hTVmURreFhA2qnL77LuZw');
+  background-size: cover;
+}
+
+.submit_box {
+  margin-top: 10px;
 }
