@@ -1,4 +1,7 @@
 class DashboardController < ApplicationController
+
+  before_filter :authenticate_user!
+
   def index
     @the_type = (Record.count > 0) ?
         (params[:the_type] || Record.first.the_type) : "NA"

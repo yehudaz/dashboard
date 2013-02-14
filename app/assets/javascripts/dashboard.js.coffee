@@ -24,10 +24,8 @@
 
 @removeInsightFromInsights = (listItem) ->
   i = listItem.parentNode.parentNode.rowIndex
-  con = confirm("Are you sure you want to delete?")
-  document.getElementById("insights").deleteRow i if con is true
+  document.getElementById("insights").deleteRow i
 
 @removePatchFromPatches = (listItem) ->
   i = listItem.parentNode.parentNode.rowIndex
-  con = confirm("Are you sure you want to delete?")
-  document.getElementById("patches").deleteRow i if con is true
+  document.getElementById("patches").deleteRow i

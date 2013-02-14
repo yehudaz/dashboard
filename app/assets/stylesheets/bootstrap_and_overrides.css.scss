@@ -27,6 +27,17 @@ div.my-box {
   }
 }
 
+#user_nav a {
+  color: #FAFFB8;
+}
+
+div#user_nav {
+  color: #FFFFFF;
+  padding: 10px 0;
+  display: block;
+  float: right;
+}
+
 h2 {
   text-align: center;
   font-family: verdana;
@@ -54,4 +65,9 @@ button.btn.btn-success {
 input {
   margin-right: 30px;
   margin-top: 10px;
+}
+
+.scroll-wrapper {
+  max-height: 150px;
+  overflow: auto;
 }
