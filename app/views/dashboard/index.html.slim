@@ -7,18 +7,6 @@
         h2 title="insight raised from code review" Code Review Insights
         div.scroll-wrapper
           table.table.table-condensed#insights
-            tr.success
-              td
-                i.icon-thumbs-up
-              td Meaningful names for variables
-              td
-                button.btn.btn-link title="remove patch deployed" type="button" Remove
-            tr.success
-              td
-                i.icon-thumbs-up
-              td Move logic from controller to model
-              td
-                button.btn.btn-link title="remove patch deployed" type="button" Remove
         .submit_box
           input#AddInsight name="user" placeholder="Code Review Insight" type="text" value=""
           button.btn.btn-success onclick="addInsightToInsightsList()" title="add another code review insight" Add
@@ -39,20 +27,8 @@
         h2 title="patches deployed for urgent hot fixes" Patched Deployed
         div.scroll-wrapper
           table.table.table-condensed#patches
-            tr.success
-              td
-                i.icon-ok
-              td patch 1
-              td
-                button.btn.btn-link title="add another patch deployed" type="button" Remove
-            tr.success
-              td
-                i.icon-ok
-              td patch 2
-              td
-                button.btn.btn-link title="add another patch deployed" type="button" Remove
         .submit_box
-          input#AddPatch name="user" placeholder="Patche Deployed" type="text" value=""
+          input#AddPatch name="user" placeholder="Patch Deployed" type="text" value=""
           button.btn.btn-success onclick="addPatchToPatchedList()" title="add another patch deployed" type="button" Add
     .row
       .span1
