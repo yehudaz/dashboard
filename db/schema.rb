@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130213120934) do
+ActiveRecord::Schema.define(:version => 20130218122228) do
 
   create_table "records", :force => true do |t|
     t.string   "the_type",   :null => false
@@ -37,5 +37,20 @@ ActiveRecord::Schema.define(:version => 20130213120934) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "versions", :force => true do |t|
+    t.boolean  "done",                 :default => false, :null => false
+    t.string   "name"
+    t.text     "description"
+    t.text     "code_review_insights", :default => "",    :null => false
+    t.text     "patches_deployed",     :default => "",    :null => false
+    t.float    "tests_coverage"
+    t.integer  "passed_tests"
+    t.integer  "rbp_open_issues"
+    t.string   "git_hash"
+    t.float    "grade"
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
+  end
 
 end

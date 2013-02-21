@@ -4,7 +4,7 @@ jQuery ->
     item = document.getElementById("AddInsight")
     item.value = item.value.trim()
     if item.value
-      table.append("<tr class=\"success\"><td><i class=\"icon-thumbs-up\"></i></td><td>"+item.value+"</td><td><button class=\"btn btn-link\"onclick=\"removeInsightFromInsights(this)\"title=\"remove patch deployed\"type=\"button\">Remove</button></td></tr>newTd1 = newTr.createElement(\"td\")")
+      table.append("<tr class=\"success\"><td><i class=\"icon-thumbs-up\"></i></td><td>"+item.value+"</td><td><button class=\"btn btn-link\"onclick=\"removeInsightFromInsights(this)\"title=\"remove code review insight\"type=\"button\">Remove</button></td></tr>newTd1 = newTr.createElement(\"td\")")
       item.value = ""
     else
       alert "Please Enter Insight"
@@ -28,3 +28,23 @@ jQuery ->
     document.getElementById("patches").deleteRow i
 
   $("#myCarousel").carousel()
+
+  @updateVersion = (versionId) ->
+    data = {}
+    insights = ''
+    $("#insights tr").each ->
+      insights += this.textContent + ';'
+    patches = ''
+    $("#patches tr").each ->
+      patches += this.textContent + ';'
+    data.insights = insights
+    data.patches = patches
+    $.ajax "/versions/" + versionId,
+      data: data
+      type: "PUT"
+      success: (response) ->
+        $("#success").show()
+      error: (response) ->
+        $("#error").show()
+    $("html, body").animate
+      scrollTop: 0, "slow"

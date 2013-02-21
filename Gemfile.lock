@@ -41,15 +41,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.4.0)
-    columnize (0.3.6)
     daemons (1.1.9)
-    debugger (1.2.4)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.1.1)
-      debugger-ruby_core_source (~> 1.1.7)
-    debugger-linecache (1.1.2)
-      debugger-ruby_core_source (>= 1.1.1)
-    debugger-ruby_core_source (1.1.7)
     devise (2.1.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -83,9 +75,6 @@ GEM
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.4)
-    pry-debugger (0.2.1)
-      debugger (~> 1.2.0)
-      pry (~> 0.9.10)
     pry-rails (0.2.2)
       pry (>= 0.9.10)
     rack (1.4.4)
@@ -178,7 +167,6 @@ DEPENDENCIES
   jquery-rails
   nifty-generators
   pg
-  pry-debugger
   pry-rails
   rails (= 3.2.11)
   rspec-rails

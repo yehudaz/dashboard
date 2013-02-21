@@ -1,0 +1,16 @@
+- title "Versions"
+div.scroll-wrapper
+  table.table.table-condensed#insights
+    tr
+      th Name
+      th Description
+      th
+    - for version in @versions
+      tr
+        td= version.name
+        td= version.description
+        td
+          p= link_to "Edit Version", "/versions/#{version.id}/edit"
+        td
+          p= link_to "Delete Version"
+p= link_to "Current Version", new_version_path
