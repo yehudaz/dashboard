@@ -69,15 +69,18 @@ class VersionsController < ApplicationController
   end
 
   def tests_coverage
-
+    record = Record.where(the_type: "Coverage").last
+    record.nil? ? 0 : record.value
   end
 
   def passed_tests
-
+    record = Record.where(the_type: "Passed Tests").last
+    record.nil? ? 0 : record.value
   end
 
   def rbp
-
+    record = Record.where(the_type: "RBP").last
+    record.nil? ? 0 : record.value
   end
 
 end
