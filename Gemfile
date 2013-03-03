@@ -4,6 +4,7 @@ gem 'rails', '3.2.11'
 gem 'slim'
 gem 'devise'
 gem 'simple_form'
+gem 'github_api'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

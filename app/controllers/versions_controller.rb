@@ -52,6 +52,31 @@ class VersionsController < ApplicationController
   private
 
   def collect_data
+    @version.git_hash = git_hash
+    @version.tests_coverage = tests_coverage
+    @version.passed_tests = passed_tests
+    @version.rbp_open_issues = rbp
+  end
+
+  def git_hash
+    begin
+      github = Github.new login:'yehuda@conduit.com', password:'Aa123456'
+      commits = github.repos.commits.all 'ConduitArch', 'air'
+      commits.first['sha']
+    rescue
+      'no data'
+    end
+  end
+
+  def tests_coverage
+
+  end
+
+  def passed_tests
+
+  end
+
+  def rbp
 
   end
 
