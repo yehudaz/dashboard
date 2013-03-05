@@ -3,9 +3,11 @@ Dashboard::Application.routes.draw do
   devise_for :users
 
   resources :records
+
   get 'dashboard(/:the_type)' => 'dashboard#index', as: 'dashboard'
 
   resources :versions
 
-  root :to => 'dashboard#index'
+  root :to => 'versions#index'
+
 end
