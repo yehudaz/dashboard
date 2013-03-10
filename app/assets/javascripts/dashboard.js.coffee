@@ -29,7 +29,7 @@ jQuery ->
 
   $("#myCarousel").carousel()
 
-  @updateVersion = (versionId) ->
+  @updateVersion = (versionId, testsCoverage, passedTests, rbpOpenIssues, gitHash) ->
     data = {}
     insights = ''
     $("#insights tr").each ->
@@ -39,6 +39,10 @@ jQuery ->
       patches += this.textContent + ';'
     data.insights = insights
     data.patches = patches
+    date.testsCoverage = testsCoverage
+    data.passedTests = passedTests
+    data.rbpOpenIssues = rbpOpenIssues
+    data.gitHash = gitHash
     $.ajax "/versions/" + versionId,
       data: data
       type: "PUT"

@@ -8,6 +8,6 @@ Dashboard::Application.routes.draw do
 
   resources :versions
 
-  root :to => 'versions#index'
+  root :to => 'versions#new'
 
 end

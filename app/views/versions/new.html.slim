@@ -77,4 +77,4 @@
     .row
       .span12
         img.img-rounded title="version status" src="http://t2.gstatic.com/images?q=tbn:ANd9GcTbpCPSWWinnzQqRJwu6yn1tzAIgrMn0On140Dzc9nAmPLcoxFF""
-    button.btn.btn onClick="updateVersion(#{@version.id})" title="save changes to version" type="button" Save
+    button.btn.btn onClick="updateVersion(#{@version.id},#{@version.tests_coverage},#{@version.passed_tests},#{@version.rbp_open_issues},#{@version.git_hash})" title="save changes to version" type="button" Save
