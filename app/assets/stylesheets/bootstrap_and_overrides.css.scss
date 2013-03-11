@@ -104,3 +104,7 @@ div.hero-unit {
 tr.success td:last-child {
   text-align: right;
 }
+
+tr.success td span {
+  word-break: break-all;
+}
