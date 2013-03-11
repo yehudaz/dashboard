@@ -59,12 +59,12 @@ button.btn.btn-success {
   text-align: center;
 }
 
-.span4 {
+.span4 div.hero-unit {
   color: #ffffff;
   text-align: center;
 }
 
-.span3 {
+.span3 div.hero-unit {
   color: #ffffff;
   text-align: center;
 }
@@ -99,4 +99,8 @@ div.hero-unit {
 
 .hero-unit h1 {
   font-size: 80px;
+}      
+
+tr.success td:last-child {
+  text-align: right;
 }
