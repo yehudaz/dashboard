@@ -13,7 +13,9 @@ class VersionsController < ApplicationController
   end
 
   def create
-    @version = Version.new(params)
+    @version = Version.new(params['version'])
+    collect_data
+    @version.done = true
     if @version.save
       redirect_to versions_url, :notice => "Successfully created version"
     else
@@ -29,8 +31,8 @@ class VersionsController < ApplicationController
 
   def update
     @version = Version.find(params[:id])
-    @version.code_review_insights = params['insights']
-    @version.patches_deployed = params['patches']
+    @version.update_attributes(params['version'])
+    collect_data
     respond_to do |format|
       if @version.save
         format.json { head :no_content }

@@ -1,11 +1,24 @@
 jQuery ->
+  extractInsights = ->
+    insights = ''
+    $(".insight").each ->
+      insights += this.textContent + ';'
+    $('#version_code_review_insights')[0].value = insights
+
+  extractPatches = ->
+    patches = ''
+    $(".patch").each ->
+      patches += this.textContent + ';'
+    $('#patches_deployed')[0].value = patches
+
   @addInsightToInsightsList = -> #Add new item to list
     table = $("#insights")
     item = document.getElementById("AddInsight")
     item.value = item.value.trim()
     if item.value
-      table.append("<tr class=\"success\"><td><i class=\"icon-thumbs-up\"></i></td><td><span>"+item.value+"</span></td><td><button class=\"btn btn-link\"onclick=\"removeInsightFromInsights(this)\"title=\"remove code review insight\"type=\"button\">Remove</button></td></tr>newTd1 = newTr.createElement(\"td\")")
+      table.append("<tr class=\"success\"><td><i class=\"icon-thumbs-up\"></i></td><td><span class='insight'>"+item.value+"</span></td><td><button class=\"btn btn-link\"onclick=\"removeInsightFromInsights(this)\"title=\"remove code review insight\"type=\"button\">Remove</button></td></tr>newTd1 = newTr.createElement(\"td\")")
       item.value = ""
+      extractInsights()
     else
       alert "Please Enter Insight"
 
@@ -14,41 +27,20 @@ jQuery ->
     item = document.getElementById("AddPatch")
     item.value = item.value.trim()
     if item.value
-      table.append("<tr class=\"success\"><td><i class=\"icon-ok\"></i></td><td><span>"+item.value+"</span></td><td><button class=\"btn btn-link\"onclick=\"removePatchFromPatches(this)\"title=\"remove patch deployed\"type=\"button\">Remove</button></td></tr>newTd1 = newTr.createElement(\"td\")")
+      table.append("<tr class=\"success\"><td><i class=\"icon-ok\"></i></td><td><span class='patch'>"+item.value+"</span></td><td><button class=\"btn btn-link\"onclick=\"removePatchFromPatches(this)\"title=\"remove patch deployed\"type=\"button\">Remove</button></td></tr>newTd1 = newTr.createElement(\"td\")")
       item.value = ""
+      extractPatches
     else
       alert "Please Enter Patch"
 
   @removeInsightFromInsights = (listItem) ->
     i = listItem.parentNode.parentNode.rowIndex
     document.getElementById("insights").deleteRow i
+    extractInsights
 
   @removePatchFromPatches = (listItem) ->
     i = listItem.parentNode.parentNode.rowIndex
     document.getElementById("patches").deleteRow i
+    extractPatches
 
   $("#myCarousel").carousel()
-
-  @updateVersion = (versionId, testsCoverage, passedTests, rbpOpenIssues, gitHash) ->
-    data = {}
-    insights = ''
-    $("#insights tr").each ->
-      insights += this.textContent + ';'
-    patches = ''
-    $("#patches tr").each ->
-      patches += this.textContent + ';'
-    data.insights = insights
-    data.patches = patches
-    date.testsCoverage = testsCoverage
-    data.passedTests = passedTests
-    data.rbpOpenIssues = rbpOpenIssues
-    data.gitHash = gitHash
-    $.ajax "/versions/" + versionId,
-      data: data
-      type: "PUT"
-      success: (response) ->
-        $("#success").show()
-      error: (response) ->
-        $("#error").show()
-    $("html, body").animate
-      scrollTop: 0, "slow"
