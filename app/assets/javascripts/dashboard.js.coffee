@@ -29,18 +29,18 @@ jQuery ->
     if item.value
       table.append("<tr class=\"success\"><td><i class=\"icon-ok\"></i></td><td><span class='patch'>"+item.value+"</span></td><td><button class=\"btn btn-link\"onclick=\"removePatchFromPatches(this)\"title=\"remove patch deployed\"type=\"button\">Remove</button></td></tr>newTd1 = newTr.createElement(\"td\")")
       item.value = ""
-      extractPatches
+      extractPatches()
     else
       alert "Please Enter Patch"
 
   @removeInsightFromInsights = (listItem) ->
     i = listItem.parentNode.parentNode.rowIndex
     document.getElementById("insights").deleteRow i
-    extractInsights
+    extractInsights()
 
   @removePatchFromPatches = (listItem) ->
     i = listItem.parentNode.parentNode.rowIndex
     document.getElementById("patches").deleteRow i
-    extractPatches
+    extractPatches()
 
   $("#myCarousel").carousel()

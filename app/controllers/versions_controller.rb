@@ -48,8 +48,9 @@ class VersionsController < ApplicationController
     @version.destroy
 
     respond_to do |format|
-      format.json { head :no_content }
-    end
+        format.html { redirect_to versions_url }
+        format.json { head :ok }
+      end
   end
 
   private

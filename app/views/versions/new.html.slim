@@ -8,7 +8,9 @@
   |  Version was not successfully saved.
 .span12
   h1
-    center Current Version
+    .row
+      center Current Version
+      img.img-rounded title="version status" src="/assets/premium.jpg" Version #{@version.name} - #{@version.description}
   .container
     .row
       .span4
@@ -72,14 +74,3 @@
           h1 title="the last GIT hash committed"
             | GIT Hash
             small  #{@version.git_hash}
-    .row
-      .span12
-        img.img-rounded title="version status" src="http://t2.gstatic.com/images?q=tbn:ANd9GcTbpCPSWWinnzQqRJwu6yn1tzAIgrMn0On140Dzc9nAmPLcoxFF""
-    = form_for @version do |f|
-      = f.label :version_number
-      = f.text_field :name
-      = f.label :version_name
-      = f.text_field :description
-      = f.hidden_field :code_review_insights
-      = f.hidden_field :patches_deployed
-      p= f.submit
