@@ -6,6 +6,8 @@ Dashboard::Application.routes.draw do
 
   resources :versions
 
+  get 'close_version', to: "versions#close", as: "close_version"
+
   root :to => 'versions#new'
 
 end

@@ -2,21 +2,19 @@ class VersionsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @versions = Version.all
+    @versions = Version.where(:done => true)
   end
 
   # new is the current version
   def new
-    @version = Version.find_by_done(false) || Version.new
-    @insights = @version.code_review_insights.split(';')
-    @patches = @version.patches_deployed.split(';')
+    @version = Version.find_by_done(false) || Version.create
     collect_data
   end
 
   def create
-    @version = Version.new(params['version'])
+    @version = Version.last
+    @version.update_attributes(params['version'])
     collect_data
-    @version.done = true
     if @version.save
       redirect_to versions_url, :notice => "Successfully created version"
     else
@@ -26,8 +24,7 @@ class VersionsController < ApplicationController
 
   def edit
     @version = Version.find(params[:id])
-    @insights = @version.code_review_insights.split(';')
-    @patches = @version.patches_deployed.split(';')
+    collect_data unless @version.done?
   end
 
   def update
@@ -48,9 +45,20 @@ class VersionsController < ApplicationController
     @version.destroy
 
     respond_to do |format|
-        format.html { redirect_to versions_url }
-        format.json { head :ok }
-      end
+      format.html { redirect_to versions_url }
+      format.json { head :ok }
+    end
+  end
+
+  def close
+    @version = Version.last
+    dont_close = @version.nil? || @version.name.blank? || @version.description.blank?
+    @version.update_attribute(:done, true) unless dont_close
+
+    respond_to do |format|
+      format.html { redirect_to versions_url }
+      format.json { head :ok }
+    end
   end
 
   private

@@ -14,12 +14,11 @@ div.scroll-wrapper
         td
           p= link_to "Delete Version", version, :confirm => 'Are you sure?', :method => :delete
 p= link_to "Current Version", new_version_path
+p= link_to("Close Version", close_version_path) unless Version.where(:done => false).empty?
 
 = form_for :version do |f|
   = f.label :version_number
   = f.text_field :name
   = f.label :version_name
   = f.text_field :description
-  = f.hidden_field :code_review_insights
-  = f.hidden_field :patches_deployed
   p= f.submit

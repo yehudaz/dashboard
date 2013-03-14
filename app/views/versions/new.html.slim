@@ -9,24 +9,26 @@
 .span12
   h1
     .row
-      center Current Version
-      img.img-rounded title="version status" src="/assets/premium.jpg" Version #{@version.name} - #{@version.description}
+      img.img-rounded title="version status" src="/assets/premium.jpg" #{@version.name.nil? ? 'Current Version' : 'Version' + @version.name + ' - ' + @version.description}
   .container
     .row
       .span4
         h2 title="insight raised from code review" Code Review Insights
         div.scroll-wrapper
           table.table.table-condensed#insights
-            - for insight in @insights
+            - for insight in @version.insights
               tr class="success"
                 td
                   i class="icon-thumbs-up"
-                td= insight
+                td
+                  span.insight= insight
                 td
                   button.btn.btn-link onclick="removeInsightFromInsights(this)" title="remove code review insight" type="button" Remove
         .submit_box
           input#AddInsight name="user" placeholder="Code Review Insight" type="text" value=""
-          button.btn.btn-success onclick="addInsightToInsightsList()" title="add another code review insight" Add
+          = form_for @version, :remote => true, :html => {:id => "edit_insights"} do |f|
+            = f.hidden_field :code_review_insights
+            button.btn.btn-success onclick="addInsightToInsightsList()" title="add another code review insight" Add
       .span4
         #myCarousel.carousel.slide
           /! Carousel items
@@ -43,19 +45,22 @@
           a.left.carousel-control data-slide="prev" href="#myCarousel" &lsaquo;
           a.right.carousel-control data-slide="next" href="#myCarousel" &rsaquo;
       .span4
-        h2 title="patches deployed for urgent hot fixes" Patched Deployed
+        h2 title="patches deployed for urgent hot fixes" Patches Deployed
         div.scroll-wrapper
           table.table.table-condensed#patches
-            - for patch in @patches
+            - for patch in @version.patches
               tr class="success"
                 td
                   i class="icon-thumbs-up"
-                td= patch
+                td
+                  span.patch= patch
                 td
                   button.btn.btn-link onclick="removePatchFromPatches(this)" title="remove patch deployed" type="button" Remove
         .submit_box
           input#AddPatch name="user" placeholder="Patch Deployed" type="text" value=""
-          button.btn.btn-success onclick="addPatchToPatchedList()" title="add another patch deployed" type="button" Add
+          = form_for @version, :remote => true, :html => {:id => "edit_patches"} do |f|
+            = f.hidden_field :patches_deployed
+            button.btn.btn-success onclick="addPatchToPatchesList()" title="add another patch deployed" Add
     .row
       .span4
         .hero-unit
