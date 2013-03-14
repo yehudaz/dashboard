@@ -1,18 +1,22 @@
-- title "Versions"
-div.scroll-wrapper
-  table.table.table-condensed#insights
+h1 Versions
+table.table.table-condensed#insights
+  tr
+    th Name
+    th Description
+    th Start Date
+    th End Date
+    th
+    th
+  - for version in @versions
     tr
-      th Name
-      th Description
-      th
-    - for version in @versions
-      tr
-        td= version.name
-        td= version.description
-        td
-          p= link_to "Edit Version", edit_version_path(version)
-        td
-          p= link_to "Delete Version", version, :confirm => 'Are you sure?', :method => :delete
+      td= version.name
+      td= version.description
+      td= version.created_at.to_s.split(' ').first
+      td= version.updated_at.to_s.split(' ').first
+      td
+        p= link_to "Edit Version", edit_version_path(version)
+      td
+        p= link_to "Delete Version", version, :confirm => 'Are you sure?', :method => :delete
 p= link_to "Current Version", new_version_path
 p= link_to("Close Version", close_version_path) unless Version.where(:done => false).empty?
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130218122228) do
+ActiveRecord::Schema.define(:version => 20130314141956) do
 
   create_table "records", :force => true do |t|
     t.string   "the_type",   :null => false
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20130218122228) do
     t.float    "grade"
     t.datetime "created_at",                              :null => false
     t.datetime "updated_at",                              :null => false
+    t.integer  "total_tests"
   end
 
 end

@@ -67,6 +67,7 @@ class VersionsController < ApplicationController
     @version.git_hash = git_hash
     @version.tests_coverage = tests_coverage
     @version.passed_tests = passed_tests
+    @version.total_tests = total_tests
     @version.rbp_open_issues = rbp
   end
 
@@ -87,6 +88,11 @@ class VersionsController < ApplicationController
 
   def passed_tests
     record = Record.where(the_type: "Passed Tests").last
+    record.nil? ? 0 : record.value
+  end
+
+  def total_tests
+    record = Record.where(the_type: "Total Tests").last
     record.nil? ? 0 : record.value
   end
 
