@@ -16,7 +16,7 @@ jQuery ->
     item = document.getElementById("AddInsight")
     item.value = item.value.trim()
     if item.value
-      table.append("<tr class=\"success\"><td><i class=\"icon-thumbs-up\"></i></td><td><span class='insight'>"+item.value+"</span></td><td><button class=\"btn btn-link\"onclick=\"removeInsightFromInsights(this)\"title=\"remove code review insight\"type=\"submit\">Remove</button></td></tr>newTd1 = newTr.createElement(\"td\")")
+      table.append("<tr><td><i class=\"icon-thumbs-up\"></i></td><td><span class='insight'>"+item.value+"</span></td><td><button class=\"btn btn-link\"onclick=\"removeInsightFromInsights(this)\"title=\"remove code review insight\"type=\"submit\">Remove</button></td></tr>newTd1 = newTr.createElement(\"td\")")
       item.value = ""
       extractInsights()
     else
@@ -27,7 +27,7 @@ jQuery ->
     item = document.getElementById("AddPatch")
     item.value = item.value.trim()
     if item.value
-      table.append("<tr class=\"success\"><td><i class=\"icon-ok\"></i></td><td><span class='patch'>"+item.value+"</span></td><td><button class=\"btn btn-link\"onclick=\"removePatchFromPatches(this)\"title=\"remove patch deployed\"type=\"submit\">Remove</button></td></tr>newTd1 = newTr.createElement(\"td\")")
+      table.append("<tr><td><i class=\"icon-ok\"></i></td><td><span class='patch'>"+item.value+"</span></td><td><button class=\"btn btn-link\"onclick=\"removePatchFromPatches(this)\"title=\"remove patch deployed\"type=\"submit\">Remove</button></td></tr>newTd1 = newTr.createElement(\"td\")")
       item.value = ""
       extractPatches()
     else
