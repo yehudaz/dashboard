@@ -45,4 +45,4 @@ jQuery ->
     extractPatches()
     $('#edit_patches').submit()
 
-  $("#myCarousel").carousel()
+  $("#myCarousel").carousel(interval: 1000)
