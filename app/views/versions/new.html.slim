@@ -15,7 +15,7 @@
       .span4
         h2 title="insight raised from code review" Code Review Insights
         div.scroll-wrapper
-          table.table.table-striped#insights
+          table.table.table-condensed#insights
             - for insight in @version.insights
               tr
                 td
@@ -47,7 +47,7 @@
       .span4
         h2 title="patches deployed for urgent hot fixes" Patches Deployed
         div.scroll-wrapper
-          table.table.table-striped#patches
+          table.table.table-condensed#patches
             - for patch in @version.patches
               tr
                 td

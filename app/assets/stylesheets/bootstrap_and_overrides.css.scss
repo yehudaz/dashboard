@@ -108,3 +108,14 @@ tr td:last-child {
 tr td span {
   word-break: break-all;
 }
+
+tr:nth-child(2n+1) {
+  background:#F5F5F5;
+  font-style:italic;
+}
+
+tr{
+  background:#FFFFF0;
+  font-style:normal;
+}
+
