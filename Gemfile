@@ -5,7 +5,6 @@ gem 'slim'
 gem 'devise'
 gem 'simple_form'
 gem 'github_api'
-gem 'newrelic_rpm'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

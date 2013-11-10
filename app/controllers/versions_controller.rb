@@ -64,6 +64,7 @@ class VersionsController < ApplicationController
   private
 
   def collect_data
+		@version.coverage_diff = @version.coverage_diff.nil? ? 0 : tests_coverage - @version.tests_coverage
     @version.git_hash = git_hash
     @version.tests_coverage = tests_coverage
     @version.passed_tests = passed_tests
