@@ -34,15 +34,15 @@
           /! Carousel items
           .carousel-inner
             .active.item
-              img src="/assets/avi.jpg"
+              img src="/assets/01.jpg"
             .item
-              img src="/assets/aviram.jpg"
+              img src="/assets/02.jpg"
             .item
-              img src="/assets/lior.jpg"
+              img src="/assets/03.jpg"
             .item
-              img src="/assets/moshe.jpg"
+              img src="/assets/04.jpg"
             .item
-              img src="/assets/yehuda.jpg"
+              img src="/assets/05.jpg"
           /! Carousel nav
           a.left.carousel-control data-slide="prev" href="#myCarousel" &lsaquo;
           a.right.carousel-control data-slide="next" href="#myCarousel" &rsaquo;
@@ -66,7 +66,7 @@
     .row
       .span4
         .hero-unit
-          h1 #{@version.tests_coverage}% #{@version.coverage_diff > 0 ? '+' : '-'}
+          h1 #{@version.tests_coverage}% #{@version.coverage_diff > 0 ? '(+)' : @version.coverage_diff.zero? ? '(=)' : '(-)'}
           p Tests Coverage
       .span4
         .hero-unit
